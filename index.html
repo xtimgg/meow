@@ -292,12 +292,17 @@
                         questionText.textContent = "...";
                         break;
                     case 8:
+                        questionText.textContent = "patrzymy, bo to jest ważne";
+                        break;
+                    case 9:
                         questionText.textContent = "ej paczcie ogólnie to pehap to jest to samo co c++ i javascript bo patrzcie, no no jak myślicie czym się to różni? halo? słuchamy?";
+                        questionText.style.font-size = `3vw`;
+                        stage = 0;
                         break;
                 }
                 button1.classList.remove('shake');
                 button2.classList.remove('shake');
-            }, 6000); // Flicker and shake for 5 seconds
+            }, 1000); // Flicker and shake for 5 seconds
         }
 
         button1.addEventListener('click', triggerFlickerAndShake);
