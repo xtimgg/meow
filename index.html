@@ -219,7 +219,7 @@
 </head>
 <body>
     <div class="question">
-        <h1 id="question-text">ej, ale słuchamy?</h1>
+        <h1 id="question-text">masz epilepsję?</h1>
         <button id="b1">nie</button>
         <button id="b2">tak</button>
     </div>
@@ -263,6 +263,7 @@
             // Start flicker and shake with individual element shaking
             body.style.animation = 'flicker 0.1s infinite';
             questionText.textContent = "trzeba bylo sluchac L";
+            questionText.style.fontSize = `8vw`;
             button1.classList.add('shake');
             button2.classList.add('shake');
             
@@ -271,31 +272,48 @@
                 body.style.animation = '';
                 switch(stage) {
                     case 1:
-                        questionText.textContent = "SŁUUCHAMYYY? 🫣🫣";
-                        questionText.style.fontSize = `8vw`;
+                        questionText.textContent = "masz epilepsję?";
                         break;
                     case 2:
-                        questionText.textContent = "dobra, ale patrzymy chociaż?";
+                        questionText.textContent = "masz epilepsję?";
                         break;
                     case 3:
-                        questionText.textContent = "ej no ale myślimy? 😡";
+                        questionText.textContent = "masz epilepsję?";
                         break;
                     case 4:
-                        questionText.textContent = "to wam się serio przyda 🙈";
+                        questionText.textContent = "masz epilepsję?";
                         break;
                     case 5:
-                        questionText.textContent = "👂👂👂👂👂";
+                        questionText.textContent = "masz epilepsję?...";
                         break;
                     case 6:
-                        questionText.textContent = "jak wy tego nie rozumiecie wtf";
+                        questionText.textContent = "ej, ale słuchamy?";
                         break;
                     case 7:
-                        questionText.textContent = "piszemy? ☠️";
+                        questionText.textContent = "SŁUUCHAMYYY? 🫣🫣";
                         break;
                     case 8:
-                        questionText.textContent = "patrzymy, bo to jest ważne";
+                        questionText.textContent = "dobra, ale patrzymy chociaż?";
                         break;
                     case 9:
+                        questionText.textContent = "ej no ale myślimy? 😡";
+                        break;
+                    case 10:
+                        questionText.textContent = "to wam się serio przyda 🙈";
+                        break;
+                    case 11:
+                        questionText.textContent = "👂👂👂👂👂";
+                        break;
+                    case 12:
+                        questionText.textContent = "jak wy tego nie rozumiecie wtf";
+                        break;
+                    case 13:
+                        questionText.textContent = "piszemy? ☠️";
+                        break;
+                    case 14:
+                        questionText.textContent = "patrzymy, bo to jest ważne";
+                        break;
+                    case 15:
                         questionText.textContent = "ej paczcie ogólnie to pehap to jest to samo co c++ i javascript bo patrzcie, no no jak myślicie czym się to różni? halo? słuchamy?";
                         questionText.style.fontSize = `3vw`;
                         stage = 0;
