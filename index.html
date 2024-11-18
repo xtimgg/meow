@@ -262,7 +262,11 @@
         function triggerFlickerAndShake() {
             // Start flicker and shake with individual element shaking
             body.style.animation = 'flicker 0.1s infinite';
-            questionText.textContent = "trzeba bylo sluchac L";
+            if(stage<6){
+                questionText.textContent = "";
+            } else {
+                questionText.textContent = "trzeba bylo sluchac L";
+            }
             questionText.style.fontSize = `8vw`;
             button1.classList.add('shake');
             button2.classList.add('shake');
@@ -316,7 +320,7 @@
                     case 15:
                         questionText.textContent = "ej paczcie ogólnie to pehap to jest to samo co c++ i javascript bo patrzcie, no no jak myślicie czym się to różni? halo? słuchamy?";
                         questionText.style.fontSize = `3vw`;
-                        stage = 0;
+                        stage = 5;
                         break;
                 }
                 button1.classList.remove('shake');
