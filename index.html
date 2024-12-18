@@ -219,12 +219,27 @@
 </head>
 <body>
     <div class="question">
-        <h1 id="question-text">masz epilepsję?</h1>
-        <button id="b1">nie</button>
-        <button id="b2">tak</button>
+        <h1 id="question-text">Masz epilepsję?</h1>
+        <button id="b1">Tak</button>
+        <button id="b2">Nie</button>
     </div>
 
     <script>
+        function removeCharactersWithDelay(str, delay) {
+            let currentStr = str;  // Initialize with the full string
+
+            function removeLastCharacter() {
+                if (currentStr.length > 0) {
+                    console.log(currentStr);  // Output current string state
+                    currentStr = currentStr.slice(0, -1);  // Remove the last character
+                    setTimeout(removeLastCharacter, delay);  // Schedule next removal
+                }
+            }
+
+            // Start removing characters
+            removeLastCharacter();
+        }
+
         const button1 = document.getElementById("b1");
         const button2 = document.getElementById("b2");
         const body = document.body;
@@ -258,74 +273,19 @@
             }, 300);
         });
 
-        var stage = 0;
         function triggerFlickerAndShake() {
             // Start flicker and shake with individual element shaking
             body.style.animation = 'flicker 0.1s infinite';
-            if(stage<6){
-                questionText.textContent = "";
-            } else {
-                questionText.textContent = "trzeba bylo sluchac L";
-            }
-            questionText.style.fontSize = `8vw`;
+            questionText.textContent = "na pewno?";
             button1.classList.add('shake');
             button2.classList.add('shake');
             
             setTimeout(() => {
-                stage += 1;
                 body.style.animation = '';
-                switch(stage) {
-                    case 1:
-                        questionText.textContent = "masz epilepsję?";
-                        break;
-                    case 2:
-                        questionText.textContent = "masz epilepsję?";
-                        break;
-                    case 3:
-                        questionText.textContent = "masz epilepsję?";
-                        break;
-                    case 4:
-                        questionText.textContent = "masz epilepsję?";
-                        break;
-                    case 5:
-                        questionText.textContent = "masz epilepsję?...";
-                        break;
-                    case 6:
-                        questionText.textContent = "ej, ale słuchamy?";
-                        break;
-                    case 7:
-                        questionText.textContent = "SŁUUCHAMYYY? 🫣🫣";
-                        break;
-                    case 8:
-                        questionText.textContent = "dobra, ale patrzymy chociaż?";
-                        break;
-                    case 9:
-                        questionText.textContent = "ej no ale myślimy? 😡";
-                        break;
-                    case 10:
-                        questionText.textContent = "to wam się serio przyda 🙈";
-                        break;
-                    case 11:
-                        questionText.textContent = "👂👂👂👂👂";
-                        break;
-                    case 12:
-                        questionText.textContent = "nie no ale nie stawiasz tej kropki nad i";
-                        break;
-                    case 13:
-                        questionText.textContent = "piszemy? ☠️";
-                        break;
-                    case 14:
-                        questionText.textContent = "patrzymy, bo to jest ważne";
-                        break;
-                    case 15:
-                        questionText.textContent = "ej paczcie ogólnie to pehap to jest to samo co c++ i javascript bo patrzcie, no no jak myślicie czym się to różni? halo? słuchamy?";
-                        questionText.style.fontSize = `3vw`;
-                        stage = 5;
-                        break;
-                }
+                questionText.classList.remove('shake');
                 button1.classList.remove('shake');
                 button2.classList.remove('shake');
-            }, 1000); // Flicker and shake for 5 seconds
+            }, 60000); // Flicker and shake for 5 seconds
         }
 
         button1.addEventListener('click', triggerFlickerAndShake);
